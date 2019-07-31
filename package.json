@@ -1,0 +1,34 @@
+{
+  "name": "post-merge-install",
+  "version": "0.0.1",
+  "description": "Run NPM Install post merge - Husky Hook",
+  "bin": {
+    "post-merge-install": "./post-merge.js"
+  },
+  "main": "post-merge.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClearTax/post-merge-install.git"
+  },
+  "keywords": [
+    "husky",
+    "npm hook",
+    "post-merge",
+    "cleartax"
+  ],
+  "author": "Dhruv Jain <dhruv.jain@cleartax.in>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClearTax/post-merge-install/issues"
+  },
+  "homepage": "https://github.com/ClearTax/post-merge-install#readme",
+  "dependencies": {
+    "chalk": "^2.4.2"
+  },
+  "devDependencies": {
+    "standard": "^13.1.0"
+  }
+}
