@@ -1,6 +1,6 @@
 {
   "name": "post-merge-install",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Run NPM Install post merge - Husky Hook",
   "bin": {
     "post-merge-install": "./post-merge.js"
