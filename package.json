@@ -7,6 +7,7 @@
   },
   "main": "post-merge.js",
   "scripts": {
+    "prepublishOnly": "npm-audit-ok && package-ok",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -29,6 +30,7 @@
     "chalk": "^2.4.2"
   },
   "devDependencies": {
+    "prepublish-ok": "^0.3.0",
     "standard": "^13.1.0"
   }
 }

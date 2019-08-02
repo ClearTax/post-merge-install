@@ -12,9 +12,9 @@ const chalk = require('chalk');
   if (needsInstall) {
     console.log(
       chalk.yellow(`
-Detected changes in "${chalk.bold('package.json')}" or "${chalk.bold('package-lock.json')}".
-Running "${chalk.bold('npm install')}" for you ..
-`)
+        Detected changes in "${chalk.bold('package.json')}" or "${chalk.bold('package-lock.json')}".
+        Running "${chalk.bold('npm install')}" for you ..
+      `)
     )
     const npmInstall = spawn(`npm`, ['install'], { stdio: 'inherit' })
     npmInstall.on('close', returnCode => {
