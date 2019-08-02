@@ -17,13 +17,12 @@ or globally as
 ## Usage
 
 ```js
-package.json
-
 "husky": {
   "hooks": {
-    "post-merge": "post-merge-install"
+    "post-merge": "post-merge-install",
+    "post-rebase": "post-merge-install"
   }
-},
+}
 ```
 
 ## Authors
