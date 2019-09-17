@@ -21,8 +21,3 @@ exports.unique = arr => Array.isArray(arr) ? [...new Set(arr)] : [];
  * @param {String[]}
  */
 exports.getDirectoriesToInstall = (files = []) => Array.isArray(files) ? exports.unique(files.map(file => dirname(file))) : [];
-
-exports.spawnProcess = (...args) => new Promise((resolve, reject) => {
-  const spawned = spawn(...args);
-  spawned.on('close', (returnCode) => returnCode ? reject(returnCode) : resolve(returnCode));
-});

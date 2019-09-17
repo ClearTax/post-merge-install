@@ -2,12 +2,11 @@
 const { execSync, spawn } = require('child_process');
 const { dirname, resolve } = require('path');
 const chalk = require('chalk');
-const { getDirectoriesToInstall, spawnProcess } = require('./utils');
-
-const workingDirectory = process.cwd();
+const { getDirectoriesToInstall, spawnProcess, getPackageFiles } = require('./utils');
 
 (async () => {
   const diffTree = execSync('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD').toString();
+  const gitRoot = execSync('git rev-parse --show-toplevel').toString();
   const packageFiles = getPackageFiles(diffTree);
 
   const filesChanged = (diffTree || '').split('\n').filter(Boolean);
@@ -17,20 +16,23 @@ const workingDirectory = process.cwd();
     console.log(
       chalk.yellow(`
 Detected changes in "${chalk.bold('package.json')}" or "${chalk.bold('package-lock.json')}".
-Running "${chalk.bold('npm install')}" in the corresponding directories..
-\n\n`)
+Running "${chalk.bold('npm install')}" in the corresponding directories..\n`)
     );
 
     const directories = getDirectoriesToInstall(filesChanged);
 
     try {
       for (const directory of directories) {
-        await spawn(`npm`, ['install'], {
-            cwd: resolve(workingDirectory, directory),
-            stdio: 'inherit' });
+        const installDirectory = resolve(gitRoot, directory);
+        console.log(chalk.yellow.dim(`‣ ${chalk.underline(installDirectory)}\n`));
+
+        execSync(`npm install`, {
+          stdio: 'inherit',
+          cwd: installDirectory,
+        });
       }
     } catch (e) {
-      console.error(e);
+      console.error(`error running 'npm install':`, e);
       process.exit(1);
     }
   }
