@@ -5,11 +5,11 @@ const chalk = require('chalk');
 const { getDirectoriesToInstall, spawnProcess, getPackageFiles } = require('./utils');
 
 (async () => {
-  const diffTree = execSync('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD').toString();
-  const gitRoot = execSync('git rev-parse --show-toplevel').toString();
+  const diffTree = execSync('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD').toString().trim();
+  const gitRoot = execSync('git rev-parse --show-toplevel').toString().trim();
   const packageFiles = getPackageFiles(diffTree);
 
-  const filesChanged = (diffTree || '').split('\n').filter(Boolean);
+  const filesChanged = diffTree.split('\n').filter(Boolean);
   const needsInstall = !process.env.CI && packageFiles.length;
 
   if (needsInstall) {
