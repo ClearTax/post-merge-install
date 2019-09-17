@@ -2,24 +2,23 @@
 const { execSync, spawn } = require('child_process');
 const { dirname, resolve } = require('path');
 const chalk = require('chalk');
-const { getDirectoriesToInstall, spawnProcess, getPackageFiles } = require('./utils');
+const { getDirectoriesToInstall, getPackageFiles } = require('./utils');
 
 (async () => {
   const diffTree = execSync('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD').toString().trim();
   const gitRoot = execSync('git rev-parse --show-toplevel').toString().trim();
-  const packageFiles = getPackageFiles(diffTree);
 
-  const filesChanged = diffTree.split('\n').filter(Boolean);
-  const needsInstall = !process.env.CI && packageFiles.length;
+  const changedPackageFiles = getPackageFiles(diffTree);
+  const needsInstall = !process.env.CI && changedPackageFiles.length;
 
   if (needsInstall) {
     console.log(
       chalk.yellow(`
-Detected changes in "${chalk.bold('package.json')}" or "${chalk.bold('package-lock.json')}".
+Detected changes in "${chalk.bold('package.json')}" and/or "${chalk.bold('package-lock.json')}".
 Running "${chalk.bold('npm install')}" in the corresponding directories..\n`)
     );
 
-    const directories = getDirectoriesToInstall(filesChanged);
+    const directories = getDirectoriesToInstall(changedPackageFiles);
 
     try {
       for (const directory of directories) {
