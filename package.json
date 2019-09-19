@@ -1,7 +1,7 @@
 {
   "name": "post-merge-install",
   "version": "0.1.0",
-  "description": "Run NPM Install post merge - Husky Hook",
+  "description": "A hook to run 'npm install' post-merge via husky 🐶",
   "bin": {
     "post-merge-install": "./post-merge.js"
   },
@@ -16,7 +16,8 @@
   },
   "keywords": [
     "husky",
-    "npm hook",
+    "git hook",
+    "npm install",
     "post-merge",
     "cleartax"
   ],
