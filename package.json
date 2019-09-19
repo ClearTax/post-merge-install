@@ -31,7 +31,7 @@
     "chalk": "^2.4.2"
   },
   "devDependencies": {
-    "prepublish-ok": "^0.3.0",
-    "standard": "^13.1.0"
+    "prepublish-ok": "^0.4.0",
+    "standard": "^14.3.1"
   }
 }
