@@ -1,6 +1,6 @@
 # post-merge-install
 
-Run 🏃 NPM Install post merge and when *package.json* or *package-lock.json* changes - Husky Hook
+Runs 🏃 `npm install` post merge/rebase and when *package.json* or *package-lock.json* changes
 
 [![NPM](https://badgen.net//npm/v/post-merge-install)](https://www.npmjs.com/package/post-merge-install)
 
@@ -26,6 +26,10 @@ or globally as
   }
 }
 ```
+
+### Alias
+
+You can also use the alias `pmi` instead of `post-merge-install`
 
 ## Authors
 
