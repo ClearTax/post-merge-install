@@ -4,7 +4,7 @@ const { resolve } = require('path')
 const chalk = require('chalk')
 const { getDirectoriesToInstall, getPackageFiles } = require('./utils');
 
-(async () => {
+(() => {
   const diffTree = execSync('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD').toString().trim()
   const gitRoot = execSync('git rev-parse --show-toplevel').toString().trim()
 
