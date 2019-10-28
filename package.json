@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/ClearTax/post-merge-install#readme",
   "dependencies": {
-    "chalk": "^2.4.2"
+    "chalk": "^2.4.2",
+    "inquirer": "^7.0.0"
   },
   "devDependencies": {
     "prepublish-ok": "^0.4.0",

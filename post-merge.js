@@ -3,12 +3,7 @@ const { execSync } = require('child_process')
 const { resolve } = require('path')
 const chalk = require('chalk')
 const { getDirectoriesToInstall, getPackageFiles } = require('./utils');
-const readline = require('readline');
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+const inquirer = require('inquirer');
 
 (async() => {
   const cliOptions = process.argv.reduce((agg, arg) => {
@@ -30,19 +25,19 @@ const rl = readline.createInterface({
 
     if (!cliOptions['--auto-install']) {
       try {
-        await new Promise((resolve, reject) => {
-          rl.question('Re-install depedencies? (y/n)', (answer) => {
-            rl.close();
-    
-            if (answer === 'y' || answer === 'Y') {
-              resolve();
-            }
+        const answers = await inquirer
+          .prompt([{
+            type: 'confirm',
+            message: 'Do you want to run `npm install` now?',
+            name: 'installConfirmation'
+          }]);
 
-            reject();
-          });
-        });
+        if (!answers.installConfirmation) {
+          process.exit(0);
+        }
       } catch (err) {
-        return;
+        console.error('Error getting user input: ', e);
+        process.exit(1);
       }
     }
 
