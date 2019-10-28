@@ -29,12 +29,16 @@ const rl = readline.createInterface({
     )
 
     if (!cliOptions['--auto-install']) {
-      execSync('chmod +x ./installPrompt.sh');
-      const answer = spawnSync('./installPrompt.sh', {
+      const answer = spawnSync(`${__dirname}/installPrompt.sh`, {
+        timeout: 5000,
         stdio: 'inherit',
+        killSignal: 1,
       });
 
       if (answer.status !== 0) {
+        if (answer.signal === 'SIGHUP') {
+          console.log('No user input detected. Exiting...');
+        }
         process.exit(0);
       }
     }
