@@ -1,9 +1,9 @@
 # post-merge-install
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
+![npm](https://img.shields.io/npm/v/post-merge-install?color=green&style=flat-square) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section --> [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-) <!-- ALL-CONTRIBUTORS-BADGE:END --> ![npm](https://img.shields.io/npm/dm/post-merge-install?color=orange&style=flat-square)
 
 Runs 🏃 `npm install` post merge/rebase and when *package.json* or *package-lock.json* changes
 
-[![NPM](https://badgen.net//npm/v/post-merge-install)](https://www.npmjs.com/package/post-merge-install)
 
 ## Install
 
@@ -32,15 +32,6 @@ or globally as
 
 You can also use the alias `pmi` instead of `post-merge-install`
 
-## Authors
-
-- [Aditi Mohanty](https://github.com/rheaditi)
-- [Dhruv Jain](https://github.com/maddhruv)
-
----
-
-[![ClearTax](https://assets1.cleartax-cdn.com/cleartax-brand/logos/2018/01/pinchy_yellow_black.png)](https://cleartax.in)
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -60,3 +51,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+<!-- Use `npx all-contributors add <your-username> <comma-separated-contribution-types>` to manually add yourself to the all-contributors list -->
+
+---
+
+[![ClearTax](https://assets1.cleartax-cdn.com/cleartax-brand/logos/2018/01/pinchy_yellow_black.png)](https://cleartax.in)
