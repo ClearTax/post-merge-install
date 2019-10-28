@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const { execSync } = require('child_process')
+const { execSync, spawnSync } = require('child_process')
 const { resolve } = require('path')
 const chalk = require('chalk')
 const { getDirectoriesToInstall, getPackageFiles } = require('./utils');
@@ -17,8 +17,8 @@ const rl = readline.createInterface({
     return agg;
   }, {});
 
-  const diffTree = execSync('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD').toString().trim()
-  const gitRoot = execSync('git rev-parse --show-toplevel').toString().trim()
+  const diffTree = execSync('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD').toString().trim();
+  const gitRoot = execSync('git rev-parse --show-toplevel').toString().trim();
 
   const changedPackageFiles = getPackageFiles(diffTree)
   const needsInstall = !process.env.CI && changedPackageFiles.length
@@ -29,33 +29,12 @@ const rl = readline.createInterface({
     )
 
     if (!cliOptions['--auto-install']) {
-      execSync('exec < /dev/tty', {
+      execSync('chmod +x ./installPrompt.sh');
+      const answer = spawnSync('./installPrompt.sh', {
         stdio: 'inherit',
       });
 
-      try {
-        await Promise
-          .race([
-            new Promise((resolve, reject) => {
-              // Timeout on user input
-              setTimeout(() => {
-                console.error('No user input detected. `npm install` was not run')
-                reject();
-              }, 3000);
-            }),
-            new Promise((resolve, reject) => {
-              rl.question('Run `npm install`? (y/n) ', (answer) => {
-                rl.close();
-        
-                if (answer === 'y' || answer === 'Y') {
-                  resolve();
-                }
-
-                reject();
-              });
-            })
-          ]);
-      } catch (err) {
+      if (answer.status !== 0) {
         process.exit(0);
       }
     }
