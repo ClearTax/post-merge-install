@@ -18,6 +18,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "maddhruv",
+      "name": "Dhruv Jain",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/18121502?v=4",
+      "profile": "https://maddhruv.github.io",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
