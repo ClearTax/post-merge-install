@@ -29,7 +29,9 @@ const rl = readline.createInterface({
     )
 
     if (!cliOptions['--auto-install']) {
-      execSync('exec < /dev/tty');
+      execSync('exec < /dev/tty', {
+        stdio: 'inherit',
+      });
 
       try {
         await Promise
