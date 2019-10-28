@@ -31,7 +31,7 @@ or globally as
 
 | Option                         | Description     | Details |
 |--------------------------------|-----------------|---------|
-|`--auto-install` |Disables confirmation prompt and automatically installs packages if change in `package.json` or `package-lock` is detected.| User will be prompted if flag is not passed|
+|`--auto-install`                |Disables confirmation prompt and automatically installs packages if change in `package.json` or `package-lock` is detected.| User will be prompted if flag is not passed|
 
 ### Alias
 
