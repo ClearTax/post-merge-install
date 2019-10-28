@@ -29,9 +29,18 @@ or globally as
 
 ### Options
 
-| Option                         | Description     | Details |
-|--------------------------------|-----------------|---------|
-|`--auto-install`                |Disables confirmation prompt and automatically installs packages if change in `package.json` or `package-lock` is detected.| User will be prompted if flag is not passed|
+<table>
+  <thead>
+    <th>Flag</th>
+    <th>Description</th>
+    <th>Details</th>
+  </thead>
+  <tbody>
+    <td width='200'><code>--auto-install</code></td>
+    <td>Disables confirmation prompt and automatically installs packages if change in `package.json` or `package-lock`is detected.</td>
+    <td>By default <code>post-merge-install</code> will prompt the user if an <code>npm install</code> should be done. This flag disables this confirmation prompt and always installs dependecies if a change is detected.</td>
+  </tbody>
+</table>
 
 ### Alias
 
