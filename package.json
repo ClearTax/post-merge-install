@@ -22,8 +22,7 @@
     "post-merge",
     "cleartax"
   ],
-  "author": "Dhruv Jain <dhruv.jain@cleartax.in>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ClearTax/post-merge-install/issues"
   },
