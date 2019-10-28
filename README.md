@@ -27,6 +27,12 @@ or globally as
 }
 ```
 
+### Options
+
+| Flag           | Description                                                                                                                                                                                                                                                                                                               |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --auto-install | Disables confirmation prompt and automatically installs packages if change in `package.json` or `package-lock`is detected. By default `post-merge-install` will prompt the user if an `npm install` should be done. This flag disables this confirmation prompt and always installs dependecies if a change is detected. |
+
 ### Alias
 
 You can also use the alias `pmi` instead of `post-merge-install`

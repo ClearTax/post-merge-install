@@ -2,7 +2,7 @@
 const { execSync, spawnSync } = require('child_process')
 const { resolve } = require('path')
 const chalk = require('chalk')
-const { getDirectoriesToInstall, getPackageFiles } = require('./utils');
+const { getDirectoriesToInstall, getPackageFiles, parseCliOptions } = require('./utils');
 const readline = require('readline');
 
 const rl = readline.createInterface({
@@ -11,11 +11,7 @@ const rl = readline.createInterface({
 });
 
 (async() => {
-  const cliOptions = process.argv.reduce((agg, arg) => {
-    const [flag, value] = arg.split('=');
-    agg[flag] = value || flag;
-    return agg;
-  }, {});
+  const cliOptions = parseCliOptions();
 
   const diffTree = execSync('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD').toString().trim();
   const gitRoot = execSync('git rev-parse --show-toplevel').toString().trim();
