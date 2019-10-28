@@ -3,7 +3,12 @@ const { execSync } = require('child_process')
 const { resolve } = require('path')
 const chalk = require('chalk')
 const { getDirectoriesToInstall, getPackageFiles } = require('./utils');
-const inquirer = require('inquirer');
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
 (async() => {
   const cliOptions = process.argv.reduce((agg, arg) => {
@@ -25,19 +30,29 @@ const inquirer = require('inquirer');
 
     if (!cliOptions['--auto-install']) {
       try {
-        const answers = await inquirer
-          .prompt([{
-            type: 'confirm',
-            message: 'Do you want to run `npm install` now?',
-            name: 'installConfirmation'
-          }]);
+        await Promise
+          .race([
+            new Promise((resolve, reject) => {
+              // Timeout on user input
+              setTimeout(() => {
+                console.error('No user input detected. `npm install` was not run')
+                reject();
+              }, 3000);
+            }),
+            new Promise((resolve, reject) => {
+              rl.question('Run `npm install`? (y/n) ', (answer) => {
+                rl.close();
+        
+                if (answer === 'y' || answer === 'Y') {
+                  resolve();
+                }
 
-        if (!answers.installConfirmation) {
-          process.exit(0);
-        }
+                reject();
+              });
+            })
+          ]);
       } catch (err) {
-        console.error('Error getting user input: ', e);
-        process.exit(1);
+        process.exit(0);
       }
     }
 
