@@ -2,8 +2,7 @@
 
 ![npm](https://img.shields.io/npm/v/post-merge-install?color=green&style=flat-square) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section --> [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-) <!-- ALL-CONTRIBUTORS-BADGE:END --> ![npm](https://img.shields.io/npm/dm/post-merge-install?color=orange&style=flat-square)
 
-Runs 🏃 `npm install` post merge/rebase and when *package.json* or *package-lock.json* changes
-
+Runs 🏃 `npm install` post merge/rebase and when `package.json` or `package-lock.json` changes.
 
 ## Install
 
