@@ -1,0 +1,34 @@
+{
+  "projectName": "post-merge-install",
+  "projectOwner": "ClearTax",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 60,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "rheaditi",
+      "name": "Aditi Mohanty",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6426069?v=4",
+      "profile": "https://aditimohanty.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "maddhruv",
+      "name": "Dhruv Jain",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/18121502?v=4",
+      "profile": "https://maddhruv.github.io",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
