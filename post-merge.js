@@ -24,7 +24,7 @@ const rl = readline.createInterface({
       chalk.yellow(`Detected changes in "${chalk.bold('package.json')}" and/or "${chalk.bold('package-lock.json')}".`)
     )
 
-    if (!cliOptions['--auto-install']) {
+    if (cliOptions['--prompt']) {
       const answer = spawnSync(`${__dirname}/installPrompt.sh`, {
         timeout: 5000,
         stdio: 'inherit',
