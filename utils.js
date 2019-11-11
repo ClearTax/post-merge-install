@@ -29,9 +29,24 @@ exports.getDirectoriesToInstall = (files = []) => Array.isArray(files) ? exports
  * @returns {Object}
  */
 exports.parseCliOptions = () => {
-    process.argv.reduce((agg, arg) => {
+    return process.argv.reduce((agg, arg) => {
         const [flag, value] = arg.split('=');
-        agg[flag] = value || flag;
+        if (value) {
+            // To handle boolean values passed as string
+            switch (value) {
+                case 'true':
+                case 'false': {
+                    agg[flag] = eval(value);
+                }
+
+                default: {
+                    agg[flag] = value;
+                }
+            }
+        } else {
+            agg[flag] = true;
+        }
+        
         return agg;
     }, {});
 }
