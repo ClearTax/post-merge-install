@@ -41,7 +41,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://aditimohanty.com"><img src="https://avatars3.githubusercontent.com/u/6426069?v=4" width="60px;" alt="Aditi Mohanty"/><br /><sub><b>Aditi Mohanty</b></sub></a><br /><a href="https://github.com/ClearTax/post-merge-install/commits?author=rheaditi" title="Code">💻</a></td>
     <td align="center"><a href="https://maddhruv.github.io"><img src="https://avatars3.githubusercontent.com/u/18121502?v=4" width="60px;" alt="Dhruv Jain"/><br /><sub><b>Dhruv Jain</b></sub></a><br /><a href="https://github.com/ClearTax/post-merge-install/commits?author=maddhruv" title="Code">💻</a> <a href="https://github.com/ClearTax/post-merge-install/commits?author=maddhruv" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://abinavseelan.com"><img src="https://avatars2.githubusercontent.com/u/6417910?v=4" width="60px;" alt="Abinav Seelan"/><br /><sub><b>Abinav Seelan</b></sub></a><br /><a href="https://github.com/ClearTax/post-merge-install/commits?author=abinavseelan" title="Code">💻</a></td>
+    <td align="center"><a href="https://abinavseelan.com"><img src="https://avatars2.githubusercontent.com/u/6417910?v=4" width="60px;" alt="Abinav Seelan"/><br /><sub><b>Abinav Seelan</b></sub></a><br /><a href="https://github.com/ClearTax/post-merge-install/commits?author=abinavseelan" title="Code">💻</a> <a href="https://github.com/ClearTax/post-merge-install/commits?author=abinavseelan" title="Documentation">📖</a></td>
   </tr>
 </table>
 
