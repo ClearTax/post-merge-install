@@ -37,8 +37,8 @@ or globally as
   </thead>
   <tbody>
     <td width='200'><code>--prompt</code></td>
-    <td>Enables a confirmation prompt before installing packages if change in `package.json` or `package-lock`is detected.</td>
-    <td>By default <code>post-merge-install</code> automatically installs dependencies if a change is detected. Adding this flag enables a confirmation prompt asking if an <code>npm install</code> should be done</td>
+    <td>Enables a confirmation prompt before installing packages if change in <code>package.json</code> or <code>package-lock.json</code> is detected.</td>
+    <td>By default <code>post-merge-install</code> automatically installs dependencies if a change is detected. Adding this flag enables a confirmation prompt asking if an <code>npm install</code> should be run.</td>
   </tbody>
 </table>
 
