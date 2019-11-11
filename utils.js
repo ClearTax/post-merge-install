@@ -34,13 +34,19 @@ exports.parseCliOptions = () => {
         if (value) {
             // To handle boolean values passed as string
             switch (value) {
-                case 'true':
+                case 'true': {
+                    agg[flag] = true;
+                    break;
+                }
+
                 case 'false': {
-                    agg[flag] = eval(value);
+                    agg[flag] = false;
+                    break;
                 }
 
                 default: {
                     agg[flag] = value;
+                    break;
                 }
             }
         } else {
