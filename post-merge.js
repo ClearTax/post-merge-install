@@ -1,22 +1,45 @@
 #!/usr/bin/env node
-const { execSync } = require('child_process')
+const { execSync, spawnSync } = require('child_process')
 const { resolve } = require('path')
 const chalk = require('chalk')
-const { getDirectoriesToInstall, getPackageFiles } = require('./utils');
+const { getDirectoriesToInstall, getPackageFiles, parseCliOptions } = require('./utils');
+const readline = require('readline');
 
-(() => {
-  const diffTree = execSync('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD').toString().trim()
-  const gitRoot = execSync('git rev-parse --show-toplevel').toString().trim()
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+(async() => {
+  const cliOptions = parseCliOptions();
+
+  const diffTree = execSync('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD').toString().trim();
+  const gitRoot = execSync('git rev-parse --show-toplevel').toString().trim();
 
   const changedPackageFiles = getPackageFiles(diffTree)
   const needsInstall = !process.env.CI && changedPackageFiles.length
 
   if (needsInstall) {
     console.log(
-      chalk.yellow(`
-Detected changes in "${chalk.bold('package.json')}" and/or "${chalk.bold('package-lock.json')}".
-Running "${chalk.bold('npm install')}" in the corresponding directories..\n`)
+      chalk.yellow(`Detected changes in "${chalk.bold('package.json')}" and/or "${chalk.bold('package-lock.json')}".`)
     )
+
+    if (cliOptions['--prompt']) {
+      const answer = spawnSync(`${__dirname}/installPrompt.sh`, {
+        timeout: 5000,
+        stdio: 'inherit',
+        killSignal: 1,
+      });
+
+      if (answer.status !== 0) {
+        if (answer.signal === 'SIGHUP') {
+          console.log('No user input detected. Exiting...');
+        }
+        process.exit(0);
+      }
+    }
+
+    console.log(`Running "${chalk.bold('npm install')}" in the corresponding directories..\n`);
 
     const directories = getDirectoriesToInstall(changedPackageFiles)
 

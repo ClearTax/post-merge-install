@@ -20,3 +20,39 @@ exports.unique = arr => Array.isArray(arr) ? [...new Set(arr)] : []
  * @param {String[]}
  */
 exports.getDirectoriesToInstall = (files = []) => Array.isArray(files) ? exports.unique(files.map(file => dirname(file))) : []
+
+/**
+ * Takes an array of cli arguments and returns an object of parsed keys along with values (if provided)
+ * Example: foo --bar will return { 'foo': 'foo', 'bar': 'bar'}
+ * Example: foo --bar=123 will return { 'foo': 'foo', 'bar': '123'}
+ * @param {Array} arr
+ * @returns {Object}
+ */
+exports.parseCliOptions = () => {
+    return process.argv.reduce((agg, arg) => {
+        const [flag, value] = arg.split('=');
+        if (value) {
+            // To handle boolean values passed as string
+            switch (value) {
+                case 'true': {
+                    agg[flag] = true;
+                    break;
+                }
+
+                case 'false': {
+                    agg[flag] = false;
+                    break;
+                }
+
+                default: {
+                    agg[flag] = value;
+                    break;
+                }
+            }
+        } else {
+            agg[flag] = true;
+        }
+        
+        return agg;
+    }, {});
+}
