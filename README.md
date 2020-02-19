@@ -21,6 +21,7 @@ or globally as
 ```js
 "husky": {
   "hooks": {
+    "post-checkout": "post-merge-install",
     "post-merge": "post-merge-install",
     "post-rebase": "post-merge-install"
   }
