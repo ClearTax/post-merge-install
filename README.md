@@ -2,7 +2,7 @@
 
 ![npm](https://img.shields.io/npm/v/post-merge-install?color=green&style=flat-square) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section --> [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-) <!-- ALL-CONTRIBUTORS-BADGE:END --> ![npm](https://img.shields.io/npm/dm/post-merge-install?color=orange&style=flat-square)
 
-Runs 🏃 `npm install` post merge/rebase and when `package.json` or `package-lock.json` changes.
+Runs 🏃 `npm install/script` post merge/rebase and when `package.json` or `package-lock.json` changes.
 
 ## Install
 
@@ -27,6 +27,15 @@ or globally as
 }
 ```
 
+### Custom script
+
+`post-merge-install` can be used with custom scripts as well.
+
+```shell
+$ post-merge-install 'yarn install'
+$ post-merge-install 'lerna' 'bootstrap'
+```
+
 ### Options
 
 <table>
@@ -38,7 +47,7 @@ or globally as
   <tbody>
     <td width='200'><code>--prompt</code></td>
     <td>Enables a confirmation prompt before installing packages if change in <code>package.json</code> or <code>package-lock.json</code> is detected.</td>
-    <td>By default <code>post-merge-install</code> automatically installs dependencies if a change is detected. Adding this flag enables a confirmation prompt asking if an <code>npm install</code> should be run.</td>
+    <td>By default <code>post-merge-install</code> automatically installs dependencies if a change is detected. Adding this flag enables a confirmation prompt asking if an <code>npm install/script</code> should be run.</td>
   </tbody>
 </table>
 
