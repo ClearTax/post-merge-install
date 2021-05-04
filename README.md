@@ -18,13 +18,9 @@ or globally as
 
 ## Usage
 
-```js
-"husky": {
-  "hooks": {
-    "post-merge": "post-merge-install",
-    "post-rebase": "post-merge-install"
-  }
-}
+```shell
+$ npx husky add .husky/post-merge 'post-merge-install "yarn install"'
+$ npx husky add .husky/post-rebase 'post-merge-install "bolt install"'
 ```
 
 ### Custom script
