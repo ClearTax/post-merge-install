@@ -1,6 +1,6 @@
 {
   "name": "post-merge-install",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "A hook to run 'npm install/script' post-merge via husky 🐶",
   "maintainers": [
     "Aditi Mohanty <rheaditi@users.noreply.github.com>",
@@ -13,7 +13,7 @@
   "main": "post-merge.js",
   "scripts": {
     "prepublishOnly": "npm-audit-ok && package-ok",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "prepublish-ok": "^0.4.0",
+    "release-it": "^14.6.1",
     "standard": "^14.3.1"
   }
 }
