@@ -1,6 +1,6 @@
 {
   "name": "post-merge-install",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A hook to run 'npm install/script' post-merge via husky 🐶",
   "maintainers": [
     "Aditi Mohanty <rheaditi@users.noreply.github.com>",
