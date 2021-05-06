@@ -18,13 +18,9 @@ or globally as
 
 ## Usage
 
-```js
-"husky": {
-  "hooks": {
-    "post-merge": "post-merge-install",
-    "post-rebase": "post-merge-install"
-  }
-}
+```shell
+$ npx husky add .husky/post-merge 'post-merge-install "yarn install"'
+$ npx husky add .husky/post-rebase 'post-merge-install "bolt install"'
 ```
 
 ### Custom script
@@ -46,7 +42,7 @@ $ post-merge-install 'lerna' 'bootstrap'
   </thead>
   <tbody>
     <td width='200'><code>--prompt</code></td>
-    <td>Enables a confirmation prompt before installing packages if change in <code>package.json</code> or <code>package-lock.json</code> is detected.</td>
+    <td>Enables a confirmation prompt before installing packages if change in <code>package.json</code> or <code>package-lock.json/yarn.lock</code> is detected.</td>
     <td>By default <code>post-merge-install</code> automatically installs dependencies if a change is detected. Adding this flag enables a confirmation prompt asking if an <code>npm install/script</code> should be run.</td>
   </tbody>
 </table>
