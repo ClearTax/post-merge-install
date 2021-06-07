@@ -15,7 +15,7 @@ const argv = require("minimist")(process.argv.slice(2));
       process.exit(1);
     }
     const diffTree = execSync(
-      "git diff-tree -r --name-only --no-commit-id origin/HEAD HEAD"
+      "git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD"
     )
       .toString()
       .trim();
